@@ -1,4 +1,17 @@
-import { Controller, Get, Post, Body, Param, Delete, Patch, Query, UsePipes, ValidationPipe, ParseIntPipe, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Patch,
+  Query,
+  UsePipes,
+  ValidationPipe,
+  ParseIntPipe,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { TasksService } from './tasks.service';
 import { TaskStatus } from './task-status.enum';
@@ -12,12 +25,12 @@ import { User } from 'src/auth/user.entity';
 @Controller('tasks')
 @UseGuards(AuthGuard())
 export class TasksController {
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService) {}
 
   @Get()
   getTasks(
     @Query(ValidationPipe) filterDto: GetTasksFilterDto,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<Task[]> {
     return this.tasksService.getTasks(filterDto, user);
   }
@@ -25,7 +38,7 @@ export class TasksController {
   @Get('/:id')
   getTask(
     @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<Task> {
     return this.tasksService.getTask(id, user);
   }
@@ -42,7 +55,7 @@ export class TasksController {
   @Delete('/:id')
   deleteTask(
     @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: User
+    @GetUser() user: User,
   ): Promise<void> {
     return this.tasksService.deleteTask(id, user);
   }

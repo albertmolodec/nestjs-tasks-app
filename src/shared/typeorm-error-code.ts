@@ -1,3 +1,3 @@
 export enum TypeormErrorCode {
-  DUPLICATED_USERNAME = '23505'
+  DUPLICATED_USERNAME = '23505',
 }

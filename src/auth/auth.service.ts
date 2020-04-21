@@ -11,14 +11,18 @@ export class AuthService {
     @InjectRepository(UserRepository)
     private userRepository: UserRepository,
     private jwtService: JwtService,
-  ) { }
+  ) {}
 
   async signUp(authCredentials: AuthCredentialsDto): Promise<void> {
-    return this.userRepository.signUp(authCredentials)
+    return this.userRepository.signUp(authCredentials);
   }
 
-  async signIn(authCredentials: AuthCredentialsDto): Promise<{ accessToken: string }> {
-    const username = await this.userRepository.validateUserPassword(authCredentials);
+  async signIn(
+    authCredentials: AuthCredentialsDto,
+  ): Promise<{ accessToken: string }> {
+    const username = await this.userRepository.validateUserPassword(
+      authCredentials,
+    );
 
     if (!username) {
       throw new UnauthorizedException('Invalid credentials');

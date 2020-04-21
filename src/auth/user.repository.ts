@@ -1,10 +1,13 @@
-import { Repository, EntityRepository } from "typeorm";
-import { InternalServerErrorException, ConflictException } from "@nestjs/common";
+import { Repository, EntityRepository } from 'typeorm';
+import {
+  InternalServerErrorException,
+  ConflictException,
+} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 
-import { AuthCredentialsDto } from './dto/auth-credentials.dto'
-import { User } from "./user.entity";
-import { TypeormErrorCode } from "src/shared/typeorm-error-code";
+import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import { User } from './user.entity';
+import { TypeormErrorCode } from 'src/shared/typeorm-error-code';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -18,17 +21,18 @@ export class UserRepository extends Repository<User> {
 
     try {
       await user.save();
-    }
-    catch (error) {
+    } catch (error) {
       if (error.code === TypeormErrorCode.DUPLICATED_USERNAME) {
-        throw new ConflictException('Username already exists')
+        throw new ConflictException('Username already exists');
       } else {
-        throw new InternalServerErrorException()
+        throw new InternalServerErrorException();
       }
     }
   }
 
-  async validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<string> {
+  async validateUserPassword(
+    authCredentialsDto: AuthCredentialsDto,
+  ): Promise<string> {
     const { username, password } = authCredentialsDto;
     const user = await this.findOne({ username });
 
@@ -40,6 +44,6 @@ export class UserRepository extends Repository<User> {
   }
 
   private async hashPassword(password: string, salt: string): Promise<string> {
-    return bcrypt.hash(password, salt)
+    return bcrypt.hash(password, salt);
   }
 }

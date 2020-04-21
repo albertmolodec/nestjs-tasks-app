@@ -5,10 +5,6 @@ import { typeOrmConfig } from './config/typeorm.config';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [
-    TasksModule,
-    AuthModule,
-    TypeOrmModule.forRoot(typeOrmConfig),
-  ],
+  imports: [TasksModule, AuthModule, TypeOrmModule.forRoot(typeOrmConfig)],
 })
-export class AppModule { }
+export class AppModule {}
