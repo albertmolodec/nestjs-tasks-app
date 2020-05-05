@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { HelloResponse } from 'src/shared/HelloResponse';
+import { HelloResponse } from '../shared/HelloResponse';
 
 const App: React.FC = () => {
   const [text, setText] = React.useState('');

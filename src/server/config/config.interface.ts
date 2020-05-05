@@ -15,4 +15,5 @@ export interface DBConfig {
 
 export interface ServerConfig {
   port: number;
+  origin: string;
 }

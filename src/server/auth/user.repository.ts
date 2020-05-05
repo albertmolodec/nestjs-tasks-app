@@ -3,11 +3,11 @@ import {
   InternalServerErrorException,
   ConflictException,
 } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
-import { TypeormErrorCode } from 'src/server/constants/typeorm-error-code';
+import { TypeormErrorCode } from '../constants/typeorm-error-code';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -36,7 +36,7 @@ export class UserRepository extends Repository<User> {
     const { username, password } = authCredentialsDto;
     const user = await this.findOne({ username });
 
-    if (await user?.validatePassword(password)) {
+    if (user && (await user.validatePassword(password))) {
       return user.username;
     } else {
       return null;

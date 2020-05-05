@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { HelloResponse } from 'src/shared/HelloResponse';
+import { HelloResponse } from '../shared/HelloResponse';
 
 @Controller('api')
 export class AppController {
