@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -10,7 +9,6 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "rootDir": "./src",
     "incremental": true
   },
   "exclude": ["node_modules", "dist"]
