@@ -7,7 +7,7 @@ import * as bcrypt from 'bcrypt';
 
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
-import { TypeormErrorCode } from 'src/shared/typeorm-error-code';
+import { TypeormErrorCode } from 'src/server/constants/typeorm-error-code';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {

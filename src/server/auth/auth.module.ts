@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { UserRepository } from './user.repository';
 import { JwtStrategy } from './jwt.strategy';
-import { JWTConfig } from 'src/config/config.interface';
+import { JWTConfig } from 'src/server/config/config.interface';
 
 const jwtConfig: JWTConfig = config.get('jwt');
 
