@@ -1,6 +1,8 @@
 # Simple task management app
 > Frontend repository: [nestjs-tasks-app-frontend](https://github.com/albertmolodec/nestjs-tasks-app-frontend).
 
+![Postman Api](https://raw.githubusercontent.com/albertmolodec/nestjs-tasks-app-backend/master/screenshots/backend-api.png)
+
 ## Documentation
 
 Postman: **[Tasks App Docs](https://documenter.getpostman.com/view/4341699/SzmcbzZu?version=latest)**.
