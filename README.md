@@ -1,4 +1,5 @@
 # Simple task management app
+> Frontend repository: [nestjs-tasks-app-frontend](https://github.com/albertmolodec/nestjs-tasks-app-frontend).
 
 ## Documentation
 
