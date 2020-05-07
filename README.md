@@ -1,4 +1,8 @@
-# Just do it
+# Simple task management app
+
+## Documentation
+
+Postman: [Tasks App Docs](https://documenter.getpostman.com/view/4341699/SzmcbzZu?version=latest).
 
 ## Resources
 
